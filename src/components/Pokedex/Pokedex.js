@@ -47,30 +47,6 @@ export default function Pokedex() {
     setClose(true)
   }
 
-  
-  
-
-  const filter = (items) => {
-    const data = [];
-
-    
-
-    const searchCat = (cat) => {
-      pokemons.forEach((item) => {
-        item.data.types.forEach(type => {
-          if(type.type.name === cat){
-            data.push(item)
-          }
-        })
-      })
-    }
-    searchCat("grass")
-    searchCat("poison")
-    console.log(data)
-    return data
-  }
-const data = filter()
-console.log(data)
   return (
     <div>
       <PokedexWraper>
