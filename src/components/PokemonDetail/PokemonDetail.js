@@ -19,7 +19,7 @@ export default function PokemonDetail({ pokemon, onClose }) {
           <NameParam>Type</NameParam>
           <ValueParam>
             {
-              pokemon.types.map(item => <Type>{item.type.name}</Type>)
+              pokemon.types.map(item => <Type  key = {Date.now().toString() + Math.random()}>{item.type.name}</Type>)
             }
           </ValueParam>
         </Param>
