@@ -6,12 +6,11 @@ export const PokemonDetailWrap = styled.div`
   max-width: 100%;
   padding: 15px;
   position: fixed;
-  right: 10%;
   top: 50%;
+  left: 60%;
   transform: translateY(-50%);
 
   @media (max-width: 900px) {
-    right: 2%;
   }
 
   @media (max-width: 760px) {
@@ -20,8 +19,8 @@ export const PokemonDetailWrap = styled.div`
 
   @media (max-width: 550px) {
     right: 50%;
-    top: 50%;
-    transform: translateY(-50%) translateX(50%);
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     width: 300px;
     box-shadow: 0 0 20px 0px black;
 
