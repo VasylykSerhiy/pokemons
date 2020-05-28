@@ -13,14 +13,15 @@ import Pokemon from '../Pokemon'
 import PokemonDetail from '../PokemonDetail'
 
 import {
-  PokedexWraper, PokedexHeading, PokedexContent,
-  PokedexList, PokedexItemDetail, LoadBtn, Item
+  PokedexWraper, PokedexHeading, PokedexContent,TypeWrapper,ClearType,
+  PokedexList, PokedexItemDetail, LoadBtn, Item, TypeSelect
 } from './Pokedex.view'
 
 export default function Pokedex() {
   const dispatch = useDispatch();
   const [limitPocemon, setLimitPocemon] = useState(12);
   const [close, setClose] = useState(true);
+  const [selectType, setSelectType] = useState("");
 
   const pokemons = useSelector(selectPokemons);
   const pokemon = useSelector(selectPokemon);
@@ -47,14 +48,44 @@ export default function Pokedex() {
     setClose(true)
   }
 
+  const chengeType = type => {
+    setSelectType(type)
+  }
+
+  const data = () => {
+    const dataNew = [];
+    if (selectType !== "") {
+      pokemons.forEach(pokemon => {
+        pokemon.data.types.forEach(type => {
+          if (type.type.name === selectType) {
+            dataNew.push(pokemon)
+          }
+        })
+      })
+    } else {
+      return pokemons
+    }
+
+    return dataNew
+  }
+
   return (
     <div>
       <PokedexWraper>
         <PokedexHeading>Pokedex</PokedexHeading>
+        <TypeWrapper>
+        {
+          selectType !== ""
+            ? <TypeSelect type={selectType}>
+              {selectType}
+              <ClearType onClick={() => setSelectType("")}></ClearType></TypeSelect>
+            : null
+        }
+        </TypeWrapper>
         <PokedexContent>
           <PokedexList>
             {
-              pokemons.map(pokemon => {
+              data().map(pokemon => {
                 return (
                   <Item
                     key={pokemon.data.id}
@@ -64,7 +95,7 @@ export default function Pokedex() {
                       img={pokemon.data.sprites.front_default}
                       name={pokemon.data.name}
                       types={pokemon.data.types}
-
+                      chengeType={chengeType}
                     />
                   </Item>
                 )
