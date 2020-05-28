@@ -63,6 +63,7 @@ export const ClearType = styled.div`
   width: 15px;
   position: relative;
   margin-left: 5px;
+  cursor: pointer;
 
   &::after,
   &::before{
@@ -93,7 +94,6 @@ export const TypeSelect = styled.div`
   border-radius: 3px;
   display: flex;
   align-items: center;
-  cursor: pointer;
 
   ${props => console.log(props)}
 

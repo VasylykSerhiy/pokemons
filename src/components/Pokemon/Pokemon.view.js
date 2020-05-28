@@ -31,6 +31,7 @@ export const Type = styled.h6`
   font-size: 13px;
   color: #fff;
   border-radius: 3px;
+  cursor: pointer;
 
   ${props => (props.type === "poison" || props.type === "ice") && css`
     background: linear-gradient(to top, purple, #8e749b );
