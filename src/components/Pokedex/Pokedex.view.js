@@ -93,6 +93,7 @@ export const TypeSelect = styled.div`
   border-radius: 3px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   ${props => console.log(props)}
 
