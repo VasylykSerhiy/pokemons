@@ -95,8 +95,6 @@ export const TypeSelect = styled.div`
   display: flex;
   align-items: center;
 
-  ${props => console.log(props)}
-
   ${props => (props.type === "poison" || props.type === "ice") && css`
     background: linear-gradient(to top, purple, #8e749b );
   `}  

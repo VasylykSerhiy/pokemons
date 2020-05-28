@@ -53,14 +53,12 @@ export default function Pokedex() {
   }
 
   const data = () => {
-    const dataNew = [];
+    let dataNew = [];
     if (selectType !== "") {
-      pokemons.forEach(pokemon => {
-        pokemon.data.types.forEach(type => {
-          if (type.type.name === selectType) {
-            dataNew.push(pokemon)
-          }
-        })
+      dataNew = pokemons.filter(pokemon => {
+        const types =  pokemon.data.types.map(el => el.type.name)
+       
+        return types.includes(selectType)
       })
     } else {
       return pokemons
